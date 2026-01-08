@@ -1,5 +1,5 @@
 export const SITE = {
-  website: "https://lirix.netlify.app/", // replace this with your deployed domain
+  website: "https://bubblerliu.github.io/", // replace this with your deployed domain
   author: "RG",
   profile: "https://github.com/BubblerLIU",
   desc: "RG's Blog",
