@@ -2,8 +2,8 @@ export const SITE = {
   website: "https://bubblerliu.github.io/", // replace this with your deployed domain
   author: "RG",
   profile: "https://github.com/BubblerLIU",
-  desc: "RG's Blog",
-  title: "RG's Blog",
+  desc: "RG's Site",
+  title: "RG's Site",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,

@@ -4,8 +4,8 @@ description: 使用 CheeryStudio 接入 API ，创建个性化、可定制的 AI
 pubDatetime: 2025-11-18T19:00:00+08:00
 featured: true
 tags:
-    - " AI"
-    - " LLM"
+    - "AI"
+    - "LLM"
 ---
 
 ## Table of contents

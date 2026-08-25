@@ -25,4 +25,50 @@ const { frontmatter } = Astro.props;
     </section>
   </main>
   <Footer />
+
+  <script>
+    const setupResumeLanguageSwitch = () => {
+      const switchButton = document.querySelector<HTMLButtonElement>(
+        "#resume-lang-switch"
+      );
+      const zhResume = document.querySelector<HTMLElement>(
+        '[data-resume-lang="zh"]'
+      );
+      const enResume = document.querySelector<HTMLElement>(
+        '[data-resume-lang="en"]'
+      );
+
+      if (!switchButton || !zhResume || !enResume) return;
+
+      const applyLanguage = (lang: "zh" | "en") => {
+        const isEnglish = lang === "en";
+
+        zhResume.hidden = isEnglish;
+        enResume.hidden = !isEnglish;
+        switchButton.textContent = isEnglish
+          ? "切换到中文"
+          : "Switch to English";
+        switchButton.setAttribute("aria-pressed", String(isEnglish));
+        switchButton.setAttribute(
+          "aria-label",
+          isEnglish ? "切换到中文" : "Switch to English"
+        );
+      };
+
+      const storedLanguage = localStorage.getItem("resume-lang");
+      applyLanguage(storedLanguage === "en" ? "en" : "zh");
+
+      if (switchButton.dataset.resumeSwitchBound === "true") return;
+
+      switchButton.dataset.resumeSwitchBound = "true";
+      switchButton.addEventListener("click", () => {
+        const nextLanguage = enResume.hidden ? "en" : "zh";
+        localStorage.setItem("resume-lang", nextLanguage);
+        applyLanguage(nextLanguage);
+      });
+    };
+
+    document.addEventListener("astro:page-load", setupResumeLanguageSwitch);
+    setupResumeLanguageSwitch();
+  </script>
 </Layout>
